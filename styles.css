@@ -330,6 +330,10 @@ body{
     gap:30px;
 }
 
+.dashboard-card{
+    max-width:440px;
+}
+
 .card-grid,
 .dashboard-grid,
 .areas-grid{
