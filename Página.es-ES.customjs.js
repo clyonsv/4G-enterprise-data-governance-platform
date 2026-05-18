@@ -832,42 +832,56 @@ async function renderDocuments(){
     }
 }
 
+async function renderAreas(){
+    try{
+        const resp = await fetch('data.json');
+        if(!resp.ok) return;
+        const data = await resp.json();
+        const areas = data['areas-of-business'] || data['area-of-business'] || [];
+        const container = document.getElementById('areasGrid') || document.querySelector('.areas-grid');
+        if(!container) return;
+
+        container.innerHTML = '';
+
+        areas.forEach(area => {
+            const item = document.createElement('div');
+            item.className = 'area-card';
+            item.style.backgroundImage = `url('${area['image-url'] || ''}')`;
+            item.style.backgroundSize = 'cover';
+            item.style.backgroundPosition = 'center';
+            item.style.backgroundRepeat = 'no-repeat';
+            item.style.minHeight = '260px';
+            item.style.position = 'relative';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'area-card-overlay';
+            overlay.style.position = 'absolute';
+            overlay.style.inset = '0';
+            overlay.style.background = 'linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.72))';
+            overlay.style.pointerEvents = 'none';
+
+            const title = document.createElement('h3');
+            title.innerText = area.name || area.title || '';
+            title.style.position = 'relative';
+            title.style.zIndex = '1';
+            title.style.color = 'white';
+            title.style.margin = '0';
+            title.style.padding = '24px';
+            title.style.fontSize = '26px';
+
+            item.appendChild(overlay);
+            item.appendChild(title);
+            container.appendChild(item);
+        });
+
+    } catch(err){
+        console.error('renderAreas error', err);
+    }
+}
+
 // Ejecutar (script se carga con defer)
 renderDocuments();
-
-function openDashboard(){
-
-    const overlay =
-        document.getElementById(
-
-            'dashboardOverlay'
-
-        );
-
-    overlay.style.display =
-        'flex';
-
-    document.body.style.overflow =
-        'hidden';
-}
-
-function closeDashboard(){
-
-    const overlay =
-        document.getElementById(
-
-            'dashboardOverlay'
-
-        );
-
-    overlay.style.display =
-        'none';
-
-    document.body.style.overflow =
-        'auto';
-}
-
-console.log("JS RUNNING");
+renderAreas();
 
 
 

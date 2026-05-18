@@ -5,6 +5,38 @@
         "powerpoint":"powerpoint.svg",
         "word":"word.svg"
     },
+    "areas-of-business": [
+        {
+            "id": "executive",
+            "name": "Executive",
+            "image-url": "https://static.vecteezy.com/system/resources/thumbnails/070/573/758/small/executive-office-with-cityscape-view-at-sunset-modern-workspace-leadership-ambience-and-corporate-success-photo.jpeg"
+        },
+        {
+            "id": "architecture",
+            "name": "Architecture",
+            "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7mf5ll4w0xWp2zILhISfc2mF9xUUnXsY7w&s"
+        },
+        {
+            "id": "cladding",
+            "name": "Cladding",
+            "image-url": "https://titanfacades.com/wp-content/uploads/2023/04/bg_header-cladding.jpg"
+        },
+        {
+            "id": "glazing",
+            "name": "Glazing",
+            "image-url": "https://bellwetherdesigntech.com/wp-content/uploads/2017/01/IMG_7671.jpg"
+        },
+        {
+            "id": "cms",
+            "name": "CMS",
+            "image-url": "https://cmproyectosbim.com/wp-content/uploads/2026/04/CMPROYECTOS.png"
+        },
+        {
+            "id": "engineering",
+            "name": "Engineering",
+            "image-url": "https://www.sunconengineers.com/wp-content/uploads/2022/10/Construction-Project-Management-Companies-900x400.jpg"
+        }
+    ],
     "governance-documents": [
         {
             "title": "Power BI Standards",
@@ -65,6 +97,14 @@
             "description": "Technical Documentation",
             "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
             "icon": "powerpoint"
+        }
+    ],
+    "bis": [
+        {
+            "title": "Sales Dashboard",
+            "description": "Power BI Report",
+            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
+            "area-of-business": "architecture"
         }
     ]
 }
