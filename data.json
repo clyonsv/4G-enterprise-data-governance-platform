@@ -39,60 +39,70 @@
     ],
     "governance-documents": [
         {
+            "id": "power-bi-standards",
             "title": "Power BI Standards",
             "description": "Corporate Guide",
             "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
             "icon": "excel"
         },
         {
+            "id": "data-architecture",
             "title": "Data Architecture",
             "description": "Technical Documentation",
             "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
             "icon": "powerpoint"
         },
         {
+            "id": "power-bi-standards",
             "title": "Power BI Standards",
             "description": "Corporate Guide",
             "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
             "icon": "excel"
         },
         {
+            "id": "data-architecture",
             "title": "Data Architecture",
             "description": "Technical Documentation",
             "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
             "icon": "powerpoint"
         },
         {
+            "id": "power-bi-standards",
             "title": "Power BI Standards",
             "description": "Corporate Guide",
             "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
             "icon": "excel"
         },
         {
+            "id": "data-architecture",
             "title": "Data Architecture",
             "description": "Technical Documentation",
             "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
             "icon": "powerpoint"
         },
         {
+            "id": "power-bi-standards",
             "title": "Power BI Standards",
             "description": "Corporate Guide",
             "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
             "icon": "excel"
         },
         {
+            "id": "data-architecture",
             "title": "Data Architecture",
             "description": "Technical Documentation",
             "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
             "icon": "powerpoint"
         },
         {
+            "id": "power-bi-standards",
             "title": "Power BI Standards",
             "description": "Corporate Guide",
             "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
             "icon": "excel"
         },
         {
+            "id": "data-architecture",
             "title": "Data Architecture",
             "description": "Technical Documentation",
             "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
@@ -101,48 +111,56 @@
     ],
     "bis": [
         {
+            "id": "sales-dashboard",
             "title": "Sales Dashboard",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "architecture"
         },
         {
+            "id": "inventory-analysis",
             "title": "Inventory Analysis",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "engineering"
         },
         {
+            "id": "sales-dashboard",
             "title": "Sales Dashboard",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "architecture"
         },
         {
+            "id": "inventory-analysis",
             "title": "Inventory Analysis",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "engineering"
         },
         {
+            "id": "sales-dashboard",
             "title": "Sales Dashboard",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "architecture"
         },
         {
+            "id": "inventory-analysis",
             "title": "Inventory Analysis",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "engineering"
         },
         {
+            "id": "sales-dashboard",
             "title": "Sales Dashboard",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "architecture"
         },
         {
+            "id": "inventory-analysis",
             "title": "Inventory Analysis",
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",

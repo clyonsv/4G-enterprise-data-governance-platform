@@ -2798,12 +2798,12 @@ footer{
 /* ========================================= */
 
 .dashboard-overlay-topbar{
-
     position:relative;
-
     z-index:20;
-
     padding:10px 0 24px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 /* ========================================= */

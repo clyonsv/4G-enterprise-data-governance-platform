@@ -96,7 +96,12 @@
         <h2>Executive Dashboards</h2>
       </div>
       <div class="area-actions">
-        <button id="areasBackButton" class="btn-secondary" style="display:none; margin-bottom:30px;">Back to Business Areas</button>
+        <button id="areasBackButton" class="btn-secondary" style="display:none; margin-bottom:30px; align-items:center; gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="width:20px; height:20px;"  >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+          Back to Business Areas
+        </button>
       </div>
       <div class="areas-grid" id="areasGrid">
         <!-- Cards generated dynamically from data.json -->
@@ -129,8 +134,8 @@
     </section>
     <div id="dashboardOverlay" class="dashboard-overlay">
       <div class="dashboard-overlay-topbar">
-        <button onclick="closeDashboard()" class="close-dashboard">✕ Close</button>
         <div class="overlay-title">Executive Analytics Dashboard</div>
+        <button onclick="closeDashboard()" class="close-dashboard">✕ Close</button>
       </div>
       <div class="overlay-powerbi">
         <iframe class="powerbi-frame" title="Metricas CEO" src="https://app.fabric.microsoft.com/reportEmbed?reportId=e75d1edd-e86d-4a19-9cee-6aa2383945b2&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true&navContentPaneEnabled=true" allowfullscreen="true"></iframe>
