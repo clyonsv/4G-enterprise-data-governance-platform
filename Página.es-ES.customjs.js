@@ -788,6 +788,10 @@ function openDashboard(url, title){
 function createBisCard(item){
     const card = document.createElement('div');
     card.className = 'dashboard-card';
+    if(item.id){
+        card.id = `bis-${item.id}`;
+        card.dataset.id = item.id;
+    }
 
     const heading = document.createElement('h3');
     heading.innerText = item.title || 'BI Report';
@@ -797,6 +801,9 @@ function createBisCard(item){
 
     const btn = document.createElement('button');
     btn.innerText = 'Open Dashboard';
+    if(item.id){
+        btn.dataset.biId = item.id;
+    }
     btn.addEventListener('click', () => {
         if(item['bi-url']){
             openDashboard(item['bi-url'], item.title || 'BI Dashboard');
@@ -897,6 +904,10 @@ async function renderDocuments(){
         docs.forEach(doc => {
             const item = document.createElement('div');
             item.className = 'document-item';
+            if(doc.id){
+                item.id = `document-${doc.id}`;
+                item.dataset.id = doc.id;
+            }
 
             const left = document.createElement('div');
             left.style.display = 'flex';
@@ -927,6 +938,9 @@ async function renderDocuments(){
 
             const btn = document.createElement('button');
             btn.innerText = 'Abrir';
+            if(doc.id){
+                btn.dataset.documentId = doc.id;
+            }
             btn.addEventListener('click', () => {
                 if(doc.url) window.open(doc.url, '_blank');
             });
