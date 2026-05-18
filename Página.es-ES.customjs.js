@@ -47,7 +47,7 @@ hiddenElements.forEach((el) => {
 
 const cards = document.querySelectorAll(
 
-    '.info-card, .dashboard-card, .area-card'
+    '.info-card, .dashboard-card'
 
 );
 
@@ -722,28 +722,6 @@ updateClock();
 
 
 // =========================================
-// OPEN DASHBOARD
-// =========================================
-
-function openDashboard(){
-
-    const overlay =
-        document.getElementById(
-
-            'dashboardOverlay'
-
-        );
-
-    if(overlay){
-        overlay.style.display =
-            'flex';
-    }
-
-    document.body.style.overflow =
-        'hidden';
-}
-
-// =========================================
 // CLOSE DASHBOARD
 // =========================================
 
@@ -763,6 +741,138 @@ function closeDashboard(){
 
     document.body.style.overflow =
         'auto';
+}
+
+let pageData = null;
+
+async function getPageData(){
+    if(pageData) return pageData;
+    try{
+        const resp = await fetch('data.json');
+        if(!resp.ok) return {};
+        pageData = await resp.json();
+    } catch(err){
+        console.error('getPageData error', err);
+        pageData = {};
+    }
+    return pageData;
+}
+
+function openDashboard(url, title){
+    const overlay =
+        document.getElementById(
+
+            'dashboardOverlay'
+
+        );
+    const titleEl = document.querySelector('.overlay-title');
+    const frame = document.querySelector('.powerbi-frame');
+
+    if(titleEl){
+        titleEl.innerText = title || 'Executive Analytics Dashboard';
+    }
+
+    if(frame && url){
+        frame.src = url;
+    }
+
+    if(overlay){
+        overlay.style.display =
+            'flex';
+    }
+
+    document.body.style.overflow =
+        'hidden';
+}
+
+function createBisCard(item){
+    const card = document.createElement('div');
+    card.className = 'dashboard-card';
+
+    const heading = document.createElement('h3');
+    heading.innerText = item.title || 'BI Report';
+
+    const description = document.createElement('p');
+    description.innerText = item.description || 'Power BI report';
+
+    const btn = document.createElement('button');
+    btn.innerText = 'Open Dashboard';
+    btn.addEventListener('click', () => {
+        if(item['bi-url']){
+            openDashboard(item['bi-url'], item.title || 'BI Dashboard');
+        }
+    });
+
+    card.appendChild(heading);
+    card.appendChild(description);
+    card.appendChild(btn);
+
+    return card;
+}
+
+async function showBusinessItems(areaId, areaName){
+    const data = await getPageData();
+    const items = (data.bis || []).filter(item => item['area-of-business'] === areaId);
+    const areasGrid = document.getElementById('areasGrid');
+    const bisGrid = document.getElementById('bisGrid');
+    const backBtn = document.getElementById('areasBackButton');
+
+    if(!areasGrid || !bisGrid || !backBtn) return;
+
+    areasGrid.style.display = 'none';
+    bisGrid.style.display = 'grid';
+    bisGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+    bisGrid.style.gap = '30px';
+    bisGrid.innerHTML = '';
+    backBtn.style.display = 'inline-flex';
+
+    if(items.length === 0){
+        const no = document.createElement('div');
+        no.className = 'no-results';
+        no.style.display = 'flex';
+        no.style.flexDirection = 'column';
+        no.style.alignItems = 'center';
+        no.style.justifyContent = 'center';
+        no.style.padding = '24px';
+        no.style.color = 'rgba(255,255,255,0.9)';
+        no.style.gap = '12px';
+
+        const img = document.createElement('img');
+        img.src = 'icons/no-result.svg';
+        img.alt = 'no results';
+        img.style.width = '64px';
+        img.style.height = '64px';
+
+        const msg = document.createElement('div');
+        msg.innerText = `No BI available for ${areaName}`;
+        msg.style.fontSize = '16px';
+        msg.style.opacity = '0.95';
+
+        no.appendChild(img);
+        no.appendChild(msg);
+        bisGrid.appendChild(no);
+        return;
+    }
+
+    items.forEach(item => bisGrid.appendChild(createBisCard(item)));
+}
+
+function resetAreaView(){
+    const areasGrid = document.getElementById('areasGrid');
+    const bisGrid = document.getElementById('bisGrid');
+    const backBtn = document.getElementById('areasBackButton');
+
+    if(areasGrid) areasGrid.style.display = 'grid';
+    if(bisGrid){
+        bisGrid.style.display = 'none';
+        bisGrid.innerHTML = '';
+    }
+    if(backBtn) backBtn.style.display = 'none';
+}
+
+const areasBackButton = document.getElementById('areasBackButton');
+if(areasBackButton){
+    areasBackButton.addEventListener('click', resetAreaView);
 }
 
 // =========================================
@@ -852,6 +962,7 @@ async function renderAreas(){
             item.style.backgroundRepeat = 'no-repeat';
             item.style.minHeight = '260px';
             item.style.position = 'relative';
+            item.style.cursor = 'pointer';
 
             const overlay = document.createElement('div');
             overlay.className = 'area-card-overlay';
@@ -871,6 +982,7 @@ async function renderAreas(){
 
             item.appendChild(overlay);
             item.appendChild(title);
+            item.addEventListener('click', () => showBusinessItems(area.id, area.name || area.title || 'Business Area'));
             container.appendChild(item);
         });
 
