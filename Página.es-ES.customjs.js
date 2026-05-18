@@ -738,6 +738,72 @@ function closeDashboard(){
 // DASHBOARD OVERLAY
 // =========================================
 
+// =========================================
+// RENDER GOVERNANCE DOCUMENTS FROM data.json
+// =========================================
+
+async function renderDocuments(){
+    try{
+        const resp = await fetch('data.json');
+        if(!resp.ok) return;
+        const data = await resp.json();
+        const iconsMap = data.icons || {};
+        const docs = data['governance-documents'] || [];
+        const container = document.getElementById('documentsList') || document.querySelector('.documents-list');
+        if(!container) return;
+        container.innerHTML = '';
+
+        docs.forEach(doc => {
+            const item = document.createElement('div');
+            item.className = 'document-item';
+
+            const left = document.createElement('div');
+            left.style.display = 'flex';
+            left.style.alignItems = 'center';
+            left.style.gap = '12px';
+
+            const iconKey = doc.icon;
+            const iconFile = iconsMap[iconKey] || '';
+            const img = document.createElement('img');
+            if(iconFile){
+                img.src = `icons/${iconFile}`;
+            }
+            img.alt = iconKey || '';
+            img.style.width = '28px';
+            img.style.height = '28px';
+            img.style.objectFit = 'contain';
+
+            const text = document.createElement('div');
+            const h4 = document.createElement('h4');
+            h4.innerText = doc.title || '';
+            const span = document.createElement('span');
+            span.innerText = doc.description || '';
+            text.appendChild(h4);
+            text.appendChild(span);
+
+            left.appendChild(img);
+            left.appendChild(text);
+
+            const btn = document.createElement('button');
+            btn.innerText = 'Abrir';
+            btn.addEventListener('click', () => {
+                if(doc.url) window.open(doc.url, '_blank');
+            });
+
+            item.appendChild(left);
+            item.appendChild(btn);
+
+            container.appendChild(item);
+        });
+
+    } catch(err){
+        console.error('renderDocuments error', err);
+    }
+}
+
+// Ejecutar (script se carga con defer)
+renderDocuments();
+
 function openDashboard(){
 
     const overlay =

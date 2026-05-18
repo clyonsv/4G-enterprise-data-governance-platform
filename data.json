@@ -1,0 +1,70 @@
+{
+    "icons": {
+        "excel":"excel.svg",
+        "pdf":"pdf.svg",
+        "powerpoint":"powerpoint.svg",
+        "word":"word.svg"
+    },
+    "governance-documents": [
+        {
+            "title": "Power BI Standards",
+            "description": "Corporate Guide",
+            "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
+            "icon": "excel"
+        },
+        {
+            "title": "Data Architecture",
+            "description": "Technical Documentation",
+            "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
+            "icon": "powerpoint"
+        },
+        {
+            "title": "Power BI Standards",
+            "description": "Corporate Guide",
+            "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
+            "icon": "excel"
+        },
+        {
+            "title": "Data Architecture",
+            "description": "Technical Documentation",
+            "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
+            "icon": "powerpoint"
+        },
+        {
+            "title": "Power BI Standards",
+            "description": "Corporate Guide",
+            "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
+            "icon": "excel"
+        },
+        {
+            "title": "Data Architecture",
+            "description": "Technical Documentation",
+            "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
+            "icon": "powerpoint"
+        },
+        {
+            "title": "Power BI Standards",
+            "description": "Corporate Guide",
+            "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
+            "icon": "excel"
+        },
+        {
+            "title": "Data Architecture",
+            "description": "Technical Documentation",
+            "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
+            "icon": "powerpoint"
+        },
+        {
+            "title": "Power BI Standards",
+            "description": "Corporate Guide",
+            "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
+            "icon": "excel"
+        },
+        {
+            "title": "Data Architecture",
+            "description": "Technical Documentation",
+            "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
+            "icon": "powerpoint"
+        }
+    ]
+}
