@@ -146,40 +146,71 @@ if(primaryButton){
 
 
 // =========================================
-// DOCUMENT SEARCH FILTER
+// DOCUMENT SEARCH FILTER (with no-results placeholder)
 // =========================================
 
-const searchInput =
-    document.querySelector('.document-search input');
+const searchInput = document.querySelector('.document-search input');
 
 if(searchInput){
 
     searchInput.addEventListener('keyup', () => {
 
-        const value =
-            searchInput.value.toLowerCase();
+        const value = (searchInput.value || '').toLowerCase().trim();
 
-        const documents =
-            document.querySelectorAll('.document-item');
+        const documents = document.querySelectorAll('.document-item');
+
+        let anyVisible = false;
 
         documents.forEach((doc) => {
 
-            const text =
-                doc.innerText.toLowerCase();
+            const text = doc.innerText.toLowerCase();
 
-            if(text.includes(value)){
+            if(value === '' || text.includes(value)){
 
                 doc.style.display = 'flex';
+                anyVisible = true;
 
-            }
-
-            else{
+            } else {
 
                 doc.style.display = 'none';
 
             }
 
         });
+
+        const container = document.getElementById('documentsList') || document.querySelector('.documents-list');
+        if(!container) return;
+
+        const existing = container.querySelector('.no-results');
+        if(existing) existing.remove();
+
+        if(!anyVisible){
+            const no = document.createElement('div');
+            no.className = 'no-results';
+            no.style.display = 'flex';
+            no.style.flexDirection = 'column';
+            no.style.alignItems = 'center';
+            no.style.justifyContent = 'center';
+            no.style.padding = '24px';
+            no.style.color = 'rgba(255,255,255,0.9)';
+            no.style.gap = '12px';
+
+            const img = document.createElement('img');
+            img.src = 'icons/no-result.svg';
+            img.alt = 'no results';
+            img.style.width = '64px';
+            img.style.height = '64px';
+
+            const msg = document.createElement('div');
+            msg.innerText = value ? `No results found for "${value}"` : 'No results found';
+            msg.style.fontSize = '16px';
+            msg.style.opacity = '0.95';
+
+            no.appendChild(img);
+            no.appendChild(msg);
+
+            container.appendChild(no);
+        }
 
     });
 

@@ -958,6 +958,18 @@ main,
     border-color:rgba(29,161,255,0.3);
 }
 
+/* No-results placeholder icon (force white color) */
+.no-results img{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    filter: invert(1) brightness(2);
+}
+
+.no-results{
+    text-align:center;
+}
+
 /* ========================================= */
 /* AREA CARDS */
 /* ========================================= */
