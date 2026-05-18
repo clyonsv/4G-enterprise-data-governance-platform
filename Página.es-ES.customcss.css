@@ -122,13 +122,10 @@ body{
 
 .hero{
     min-height:100vh;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 80px;
-
     gap:50px;
 }
 
@@ -295,12 +292,10 @@ body{
 /* ========================================= */
 
 .section{
-    padding:140px 80px;
+    padding:80px;
 }
 
 .section-header{
-    max-width:700px;
-
     margin-bottom:60px;
 }
 
@@ -325,6 +320,15 @@ body{
 /* ========================================= */
 /* CARDS */
 /* ========================================= */
+
+.info-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap:30px;
+}
 
 .card-grid,
 .dashboard-grid,
@@ -450,13 +454,13 @@ body{
 /* DOCUMENT ITEMS */
 /* ========================================= */
 
-.document-list{
-
+.documents-list{
     display:flex;
-
     flex-direction:column;
-
     gap:20px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x:hidden;
 }
 
 .document-item{
@@ -613,7 +617,6 @@ section{
 /* Full width */
 
 .dg-page{
-
     width:100vw;
     overflow:hidden;
 }
@@ -951,6 +954,18 @@ main,
     border-color:rgba(29,161,255,0.3);
 }
 
+/* No-results placeholder icon (force white color) */
+.no-results img{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    filter: invert(1) brightness(2);
+}
+
+.no-results{
+    text-align:center;
+}
+
 /* ========================================= */
 /* AREA CARDS */
 /* ========================================= */
@@ -966,6 +981,16 @@ main,
     position:relative;
 
     overflow:hidden;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.4s;
 }
 
 .area-card::before{
@@ -979,9 +1004,28 @@ main,
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.65),
             transparent
         );
+}
+
+.area-card h3{
+
+    position:relative;
+
+    z-index:1;
+
+    margin:0;
+
+    color:white;
+
+    font-size:28px;
+
+    padding:24px;
+}
+
+.area-card-overlay{
+    display:none;
 }
 
 /* ========================================= */
@@ -1171,18 +1215,6 @@ main,
     opacity:0.5;
 
     animation:orbFloat 12s infinite ease-in-out;
-}
-
-.orb-1{
-
-    width:400px;
-    height:400px;
-
-    background:
-        rgba(29,161,255,0.25);
-
-    top:-100px;
-    left:-120px;
 }
 
 .orb-2{
@@ -1533,33 +1565,22 @@ main,
 .sidebar{
 
     position:fixed;
-
     top:50%;
-
     left:30px;
-
     transform:translateY(-50%);
-
-    width:240px;
-
-    padding:30px 20px;
-
+    width:200px;
+    padding:20px 15px;
     border-radius:32px;
-
     background:
         linear-gradient(
             180deg,
             rgba(15,20,35,0.88),
             rgba(8,12,20,0.78)
         );
-
     border:
         1px solid rgba(255,255,255,0.08);
-
     backdrop-filter:blur(30px);
-
     z-index:100;
-
     box-shadow:
         0 20px 60px rgba(0,0,0,0.4);
 }
@@ -1567,30 +1588,23 @@ main,
 /* Logo */
 
 .sidebar-logo{
-
     display:flex;
-
     align-items:center;
-
     gap:16px;
-
-    margin-bottom:50px;
+    margin-bottom:20px;
 }
 
 .logo-circle{
 
     width:18px;
     height:18px;
-
     border-radius:50%;
-
     background:
         linear-gradient(
             135deg,
             #1da1ff,
             #00d4ff
         );
-
     box-shadow:
         0 0 20px rgba(29,161,255,0.8);
 }
@@ -1598,9 +1612,7 @@ main,
 .sidebar-logo span{
 
     font-size:28px;
-
     font-weight:800;
-
     color:white;
 }
 
@@ -1609,28 +1621,19 @@ main,
 .sidebar-menu{
 
     display:flex;
-
     flex-direction:column;
-
-    gap:14px;
+    gap:5px;
 }
 
 .sidebar-item{
 
     display:flex;
-
     align-items:center;
-
-    gap:16px;
-
-    padding:18px 20px;
-
+    gap:10px;
+    padding:10px 15px;
     border-radius:18px;
-
     color:rgba(255,255,255,0.7);
-
     text-decoration:none;
-
     transition:0.35s;
 }
 
@@ -1671,8 +1674,7 @@ main,
 /* Layout shift */
 
 .dg-page{
-
-    padding-left:320px;
+    padding-left:240px;
 }
 
 /* Mobile */
@@ -2750,12 +2752,12 @@ footer{
 /* ========================================= */
 
 .dashboard-overlay-topbar{
-
     position:relative;
-
     z-index:20;
-
     padding:10px 0 24px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 /* ========================================= */

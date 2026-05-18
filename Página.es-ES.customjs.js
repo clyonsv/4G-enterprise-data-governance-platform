@@ -47,7 +47,7 @@ hiddenElements.forEach((el) => {
 
 const cards = document.querySelectorAll(
 
-    '.info-card, .dashboard-card, .area-card'
+    '.info-card, .dashboard-card'
 
 );
 
@@ -146,40 +146,71 @@ if(primaryButton){
 
 
 // =========================================
-// DOCUMENT SEARCH FILTER
+// DOCUMENT SEARCH FILTER (with no-results placeholder)
 // =========================================
 
-const searchInput =
-    document.querySelector('.document-search input');
+const searchInput = document.querySelector('.document-search input');
 
 if(searchInput){
 
     searchInput.addEventListener('keyup', () => {
 
-        const value =
-            searchInput.value.toLowerCase();
+        const value = (searchInput.value || '').toLowerCase().trim();
 
-        const documents =
-            document.querySelectorAll('.document-item');
+        const documents = document.querySelectorAll('.document-item');
+
+        let anyVisible = false;
 
         documents.forEach((doc) => {
 
-            const text =
-                doc.innerText.toLowerCase();
+            const text = doc.innerText.toLowerCase();
 
-            if(text.includes(value)){
+            if(value === '' || text.includes(value)){
 
                 doc.style.display = 'flex';
+                anyVisible = true;
 
-            }
-
-            else{
+            } else {
 
                 doc.style.display = 'none';
 
             }
 
         });
+
+        const container = document.getElementById('documentsList') || document.querySelector('.documents-list');
+        if(!container) return;
+
+        const existing = container.querySelector('.no-results');
+        if(existing) existing.remove();
+
+        if(!anyVisible){
+            const no = document.createElement('div');
+            no.className = 'no-results';
+            no.style.display = 'flex';
+            no.style.flexDirection = 'column';
+            no.style.alignItems = 'center';
+            no.style.justifyContent = 'center';
+            no.style.padding = '24px';
+            no.style.color = 'rgba(255,255,255,0.9)';
+            no.style.gap = '12px';
+
+            const img = document.createElement('img');
+            img.src = 'icons/no-result.svg';
+            img.alt = 'no results';
+            img.style.width = '64px';
+            img.style.height = '64px';
+
+            const msg = document.createElement('div');
+            msg.innerText = value ? `No results found for "${value}"` : 'No results found';
+            msg.style.fontSize = '16px';
+            msg.style.opacity = '0.95';
+
+            no.appendChild(img);
+            no.appendChild(msg);
+
+            container.appendChild(no);
+        }
 
     });
 
@@ -691,28 +722,6 @@ updateClock();
 
 
 // =========================================
-// OPEN DASHBOARD
-// =========================================
-
-function openDashboard(){
-
-    const overlay =
-        document.getElementById(
-
-            'dashboardOverlay'
-
-        );
-
-    if(overlay){
-        overlay.style.display =
-            'flex';
-    }
-
-    document.body.style.overflow =
-        'hidden';
-}
-
-// =========================================
 // CLOSE DASHBOARD
 // =========================================
 
@@ -734,43 +743,271 @@ function closeDashboard(){
         'auto';
 }
 
-// =========================================
-// DASHBOARD OVERLAY
-// =========================================
+let pageData = null;
 
-function openDashboard(){
+async function getPageData(){
+    if(pageData) return pageData;
+    try{
+        const resp = await fetch('data.json');
+        if(!resp.ok) return {};
+        pageData = await resp.json();
+    } catch(err){
+        console.error('getPageData error', err);
+        pageData = {};
+    }
+    return pageData;
+}
 
+function openDashboard(url, title){
     const overlay =
         document.getElementById(
 
             'dashboardOverlay'
 
         );
+    const titleEl = document.querySelector('.overlay-title');
+    const frame = document.querySelector('.powerbi-frame');
 
-    overlay.style.display =
-        'flex';
+    if(titleEl){
+        titleEl.innerText = title || 'Executive Analytics Dashboard';
+    }
+
+    if(frame && url){
+        frame.src = url;
+    }
+
+    if(overlay){
+        overlay.style.display =
+            'flex';
+    }
 
     document.body.style.overflow =
         'hidden';
 }
 
-function closeDashboard(){
+function createBisCard(item){
+    const card = document.createElement('div');
+    card.className = 'dashboard-card';
+    if(item.id){
+        card.id = `bis-${item.id}`;
+        card.dataset.id = item.id;
+    }
 
-    const overlay =
-        document.getElementById(
+    const heading = document.createElement('h3');
+    heading.innerText = item.title || 'BI Report';
 
-            'dashboardOverlay'
+    const description = document.createElement('p');
+    description.innerText = item.description || 'Power BI report';
 
-        );
+    const btn = document.createElement('button');
+    btn.innerText = 'Open Dashboard';
+    if(item.id){
+        btn.dataset.biId = item.id;
+    }
+    btn.addEventListener('click', () => {
+        if(item['bi-url']){
+            openDashboard(item['bi-url'], item.title || 'BI Dashboard');
+        }
+    });
 
-    overlay.style.display =
-        'none';
+    card.appendChild(heading);
+    card.appendChild(description);
+    card.appendChild(btn);
 
-    document.body.style.overflow =
-        'auto';
+    return card;
 }
 
-console.log("JS RUNNING");
+async function showBusinessItems(areaId, areaName){
+    const data = await getPageData();
+    const items = (data.bis || []).filter(item => item['area-of-business'] === areaId);
+    const areasGrid = document.getElementById('areasGrid');
+    const bisGrid = document.getElementById('bisGrid');
+    const backBtn = document.getElementById('areasBackButton');
+
+    if(!areasGrid || !bisGrid || !backBtn) return;
+
+    areasGrid.style.display = 'none';
+    bisGrid.style.display = 'grid';
+    bisGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+    bisGrid.style.gap = '30px';
+    bisGrid.innerHTML = '';
+    backBtn.style.display = 'inline-flex';
+
+    if(items.length === 0){
+        const no = document.createElement('div');
+        no.className = 'no-results';
+        no.style.display = 'flex';
+        no.style.flexDirection = 'column';
+        no.style.alignItems = 'center';
+        no.style.justifyContent = 'center';
+        no.style.padding = '24px';
+        no.style.color = 'rgba(255,255,255,0.9)';
+        no.style.gap = '12px';
+
+        const img = document.createElement('img');
+        img.src = 'icons/no-result.svg';
+        img.alt = 'no results';
+        img.style.width = '64px';
+        img.style.height = '64px';
+
+        const msg = document.createElement('div');
+        msg.innerText = `No BI available for ${areaName}`;
+        msg.style.fontSize = '16px';
+        msg.style.opacity = '0.95';
+
+        no.appendChild(img);
+        no.appendChild(msg);
+        bisGrid.appendChild(no);
+        return;
+    }
+
+    items.forEach(item => bisGrid.appendChild(createBisCard(item)));
+}
+
+function resetAreaView(){
+    const areasGrid = document.getElementById('areasGrid');
+    const bisGrid = document.getElementById('bisGrid');
+    const backBtn = document.getElementById('areasBackButton');
+
+    if(areasGrid) areasGrid.style.display = 'grid';
+    if(bisGrid){
+        bisGrid.style.display = 'none';
+        bisGrid.innerHTML = '';
+    }
+    if(backBtn) backBtn.style.display = 'none';
+}
+
+const areasBackButton = document.getElementById('areasBackButton');
+if(areasBackButton){
+    areasBackButton.addEventListener('click', resetAreaView);
+}
+
+// =========================================
+// DASHBOARD OVERLAY
+// =========================================
+
+// =========================================
+// RENDER GOVERNANCE DOCUMENTS FROM data.json
+// =========================================
+
+async function renderDocuments(){
+    try{
+        const resp = await fetch('data.json');
+        if(!resp.ok) return;
+        const data = await resp.json();
+        const iconsMap = data.icons || {};
+        const docs = data['governance-documents'] || [];
+        const container = document.getElementById('documentsList') || document.querySelector('.documents-list');
+        if(!container) return;
+        container.innerHTML = '';
+
+        docs.forEach(doc => {
+            const item = document.createElement('div');
+            item.className = 'document-item';
+            if(doc.id){
+                item.id = `document-${doc.id}`;
+                item.dataset.id = doc.id;
+            }
+
+            const left = document.createElement('div');
+            left.style.display = 'flex';
+            left.style.alignItems = 'center';
+            left.style.gap = '12px';
+
+            const iconKey = doc.icon;
+            const iconFile = iconsMap[iconKey] || '';
+            const img = document.createElement('img');
+            if(iconFile){
+                img.src = `icons/${iconFile}`;
+            }
+            img.alt = iconKey || '';
+            img.style.width = '28px';
+            img.style.height = '28px';
+            img.style.objectFit = 'contain';
+
+            const text = document.createElement('div');
+            const h4 = document.createElement('h4');
+            h4.innerText = doc.title || '';
+            const span = document.createElement('span');
+            span.innerText = doc.description || '';
+            text.appendChild(h4);
+            text.appendChild(span);
+
+            left.appendChild(img);
+            left.appendChild(text);
+
+            const btn = document.createElement('button');
+            btn.innerText = 'Abrir';
+            if(doc.id){
+                btn.dataset.documentId = doc.id;
+            }
+            btn.addEventListener('click', () => {
+                if(doc.url) window.open(doc.url, '_blank');
+            });
+
+            item.appendChild(left);
+            item.appendChild(btn);
+
+            container.appendChild(item);
+        });
+
+    } catch(err){
+        console.error('renderDocuments error', err);
+    }
+}
+
+async function renderAreas(){
+    try{
+        const resp = await fetch('data.json');
+        if(!resp.ok) return;
+        const data = await resp.json();
+        const areas = data['areas-of-business'] || data['area-of-business'] || [];
+        const container = document.getElementById('areasGrid') || document.querySelector('.areas-grid');
+        if(!container) return;
+
+        container.innerHTML = '';
+
+        areas.forEach(area => {
+            const item = document.createElement('div');
+            item.className = 'area-card';
+            item.style.backgroundImage = `url('${area['image-url'] || ''}')`;
+            item.style.backgroundSize = 'cover';
+            item.style.backgroundPosition = 'center';
+            item.style.backgroundRepeat = 'no-repeat';
+            item.style.minHeight = '260px';
+            item.style.position = 'relative';
+            item.style.cursor = 'pointer';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'area-card-overlay';
+            overlay.style.position = 'absolute';
+            overlay.style.inset = '0';
+            overlay.style.background = 'linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.72))';
+            overlay.style.pointerEvents = 'none';
+
+            const title = document.createElement('h3');
+            title.innerText = area.name || area.title || '';
+            title.style.position = 'relative';
+            title.style.zIndex = '1';
+            title.style.color = 'white';
+            title.style.margin = '0';
+            title.style.padding = '24px';
+            title.style.fontSize = '26px';
+
+            item.appendChild(overlay);
+            item.appendChild(title);
+            item.addEventListener('click', () => showBusinessItems(area.id, area.name || area.title || 'Business Area'));
+            container.appendChild(item);
+        });
+
+    } catch(err){
+        console.error('renderAreas error', err);
+    }
+}
+
+// Ejecutar (script se carga con defer)
+renderDocuments();
+renderAreas();
 
 
 
