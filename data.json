@@ -112,10 +112,10 @@
     "bis": [
         {
             "id": "1",
-            "title": "Sales Dashboard",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "architecture"
+            "title": "Rentabilidades",
+            "description": "Informe de rentabilidades que analiza ventas, costos, márgenes, VPU, VPC y VPV; a nivel de área, cliente, servicio y proyecto",
+            "bi-url": "https://app.fabric.microsoft.com/reportEmbed?reportId=cb14614c-ccff-411b-a185-3b2afeaf9864&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
+            "area-of-business": "executive"
         },
         {
             "id": "2",
