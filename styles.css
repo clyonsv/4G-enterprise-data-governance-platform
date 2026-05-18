@@ -461,6 +461,8 @@ body{
     max-height: 400px;
     overflow-y: auto;
     overflow-x:hidden;
+    padding-right:16px; /* espacio entre contenido y scrollbar */
+    scrollbar-gutter: stable; /* reserva espacio para el scrollbar */
 }
 
 .document-item{
