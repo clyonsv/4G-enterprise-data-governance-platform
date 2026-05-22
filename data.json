@@ -119,10 +119,10 @@
         },
         {
             "id": "2",
-            "title": "Inventory Analysis",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "engineering"
+            "title": "Métricas CEO",
+            "description": "Informe de datos financieros ejecutados/prometidos y capacidad instalada",
+            "bi-url": "https://app.powerbi.com/reportEmbed?reportId=e75d1edd-e86d-4a19-9cee-6aa2383945b2&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
+            "area-of-business": "executive"
         },
         {
             "id": "3",
