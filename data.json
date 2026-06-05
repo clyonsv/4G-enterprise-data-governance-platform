@@ -35,6 +35,11 @@
             "id": "engineering",
             "name": "Engineering",
             "image-url": "https://www.sunconengineers.com/wp-content/uploads/2022/10/Construction-Project-Management-Companies-900x400.jpg"
+        },
+        {
+            "id": "Commercial (coming soon)",
+            "name": "Commercial",
+            "image-url": "https://www.fineliscoaching.com/wp-content/uploads/2023/11/Sans-titre-10-x-6.023-cm-1024x616.png"
         }
     ],
     "governance-documents": [
@@ -86,27 +91,6 @@
             "description": "Archivo ENG. Incluye proyección, recursos, listas, etc",
             "url": "https://netorgft10660452-my.sharepoint.com/:x:/g/personal/mflorez_4garchitecture_com_co/IQCndZXfeWO_QZH15i-LILNgAexMWV3fcYUlhIeo0YvaQUo?e=u2CAd0",
             "icon": "excel"
-        },
-        {
-            "id": "8",
-            "title": "Data Architecture",
-            "description": "Technical Documentation",
-            "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
-            "icon": "powerpoint"
-        },
-        {
-            "id": "9",
-            "title": "Power BI Standards",
-            "description": "Corporate Guide",
-            "url": "https://www.tuconsultorti.com/wp-content/uploads/2023/08/como-comprar-en-amazon-desde-colombia.png",
-            "icon": "excel"
-        },
-        {
-            "id": "10",
-            "title": "Data Architecture",
-            "description": "Technical Documentation",
-            "url": "https://marketing4ecommerce.co/wp-content/uploads/2023/01/Copia-de-PLANTILLA-PORTADA-750X450-2022-12-30T120915.905.jpg",
-            "icon": "powerpoint"
         }
     ],
     "bis": [
@@ -122,6 +106,13 @@
             "title": "Métricas CEO",
             "description": "Informe de datos financieros ejecutados/prometidos y capacidad instalada",
             "bi-url": "https://app.powerbi.com/reportEmbed?reportId=e75d1edd-e86d-4a19-9cee-6aa2383945b2&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
+            "area-of-business": "executive"
+        },
+        {
+            "id": "2",
+            "title": "Métricas Generales",
+            "description": "Informe detallado de reporte de horas por línea de negocio",
+            "bi-url": "https://app.powerbi.com/reportEmbed?reportId=df5415af-4b02-478f-a2a0-1e260e3f6a6e&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
             "area-of-business": "executive"
         },
         {
