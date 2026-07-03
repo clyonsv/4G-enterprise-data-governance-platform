@@ -12,6 +12,11 @@
             "image-url": "https://static.vecteezy.com/system/resources/thumbnails/070/573/758/small/executive-office-with-cityscape-view-at-sunset-modern-workspace-leadership-ambience-and-corporate-success-photo.jpeg"
         },
         {
+            "id": "Commercial",
+            "name": "Commercial",
+            "image-url": "https://www.fineliscoaching.com/wp-content/uploads/2023/11/Sans-titre-10-x-6.023-cm-1024x616.png"
+        },
+        {
             "id": "architecture",
             "name": "Architecture",
             "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7mf5ll4w0xWp2zILhISfc2mF9xUUnXsY7w&s"
@@ -35,11 +40,6 @@
             "id": "engineering",
             "name": "Engineering",
             "image-url": "https://www.sunconengineers.com/wp-content/uploads/2022/10/Construction-Project-Management-Companies-900x400.jpg"
-        },
-        {
-            "id": "Commercial (coming soon)",
-            "name": "Commercial",
-            "image-url": "https://www.fineliscoaching.com/wp-content/uploads/2023/11/Sans-titre-10-x-6.023-cm-1024x616.png"
         }
     ],
     "governance-documents": [
@@ -156,6 +156,13 @@
             "description": "Power BI Report",
             "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
             "area-of-business": "engineering"
-        }
+        },
+                {
+            "id": "9",
+            "title": "BI Comercial",
+            "description": "Dashboard Comercial 2026. Incluye venta, recast, proyecciones, y mas.",
+            "bi-url": "https://app.powerbi.com/reportEmbed?reportId=9279ae8a-6e3e-4b31-891a-45aea25d9134&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
+            "area-of-business": "Commercial"
+        },
     ]
 }
