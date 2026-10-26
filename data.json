@@ -15,31 +15,6 @@
             "id": "Commercial",
             "name": "Commercial",
             "image-url": "https://www.fineliscoaching.com/wp-content/uploads/2023/11/Sans-titre-10-x-6.023-cm-1024x616.png"
-        },
-        {
-            "id": "architecture",
-            "name": "Architecture",
-            "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7mf5ll4w0xWp2zILhISfc2mF9xUUnXsY7w&s"
-        },
-        {
-            "id": "cladding",
-            "name": "Cladding",
-            "image-url": "https://titanfacades.com/wp-content/uploads/2023/04/bg_header-cladding.jpg"
-        },
-        {
-            "id": "glazing",
-            "name": "Glazing",
-            "image-url": "https://bellwetherdesigntech.com/wp-content/uploads/2017/01/IMG_7671.jpg"
-        },
-        {
-            "id": "cms",
-            "name": "CMS",
-            "image-url": "https://cmproyectosbim.com/wp-content/uploads/2026/04/CMPROYECTOS.png"
-        },
-        {
-            "id": "engineering",
-            "name": "Engineering",
-            "image-url": "https://www.sunconengineers.com/wp-content/uploads/2022/10/Construction-Project-Management-Companies-900x400.jpg"
         }
     ],
     "governance-documents": [
@@ -116,53 +91,11 @@
             "area-of-business": "executive"
         },
         {
-            "id": "2",
+            "id": "3",
             "title": "Métricas Generales",
             "description": "Informe detallado de reporte de horas por línea de negocio",
             "bi-url": "https://app.powerbi.com/reportEmbed?reportId=df5415af-4b02-478f-a2a0-1e260e3f6a6e&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
             "area-of-business": "executive"
-        },
-        {
-            "id": "3",
-            "title": "Sales Dashboard",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "architecture"
-        },
-        {
-            "id": "4",
-            "title": "Inventory Analysis",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "engineering"
-        },
-        {
-            "id": "5",
-            "title": "Sales Dashboard",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "architecture"
-        },
-        {
-            "id": "6",
-            "title": "Inventory Analysis",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "engineering"
-        },
-        {
-            "id": "7",
-            "title": "Sales Dashboard",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "architecture"
-        },
-        {
-            "id": "8",
-            "title": "Inventory Analysis",
-            "description": "Power BI Report",
-            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZDE3Ni00ODQ0LTg5NWQtYjA1N2E5YjA4M2EiLCJuIjoiMjAyNTEyMDkwNjE3MTg0OTg1MiIsImMiOjh9",
-            "area-of-business": "engineering"
         },
         {
             "id": "9",
