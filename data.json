@@ -80,7 +80,7 @@
             "id": "1",
             "title": "Rentabilidades",
             "description": "Informe de rentabilidades que analiza ventas, costos, márgenes, VPU, VPC y VPV; a nivel de área, cliente, servicio y proyecto",
-            "bi-url": "https://app.fabric.microsoft.com/reportEmbed?reportId=cb14614c-ccff-411b-a185-3b2afeaf9864&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
+            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiMDFlZmJjODMtMGE4ZS00NWQ3LTg3NTEtMTAzZTZiMjRhMjdhIiwidCI6IjA2ZDc1N2Q1LThiM2QtNDFiYi1iMzlhLTIyYTUxOWY3MTQwZCJ9&pageName=4f27ff9b4f38b59d9363",
             "area-of-business": "executive"
         },
         {
