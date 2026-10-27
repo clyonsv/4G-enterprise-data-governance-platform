@@ -87,14 +87,14 @@
             "id": "2",
             "title": "Métricas CEO",
             "description": "Informe de datos financieros ejecutados/prometidos y capacidad instalada",
-            "bi-url": "https://app.powerbi.com/reportEmbed?reportId=e75d1edd-e86d-4a19-9cee-6aa2383945b2&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
+            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiNzc3NDgxMDItZGVkYy00NzIwLWEzMWYtYTNjYzRhMzhlY2UzIiwidCI6IjA2ZDc1N2Q1LThiM2QtNDFiYi1iMzlhLTIyYTUxOWY3MTQwZCJ9",
             "area-of-business": "executive"
         },
         {
             "id": "3",
             "title": "Métricas Generales",
             "description": "Informe detallado de reporte de horas por línea de negocio",
-            "bi-url": "https://app.powerbi.com/reportEmbed?reportId=df5415af-4b02-478f-a2a0-1e260e3f6a6e&autoAuth=true&ctid=06d757d5-8b3d-41bb-b39a-22a519f7140d&actionBarEnabled=true",
+            "bi-url": "https://app.powerbi.com/view?r=eyJrIjoiMGM3Yzk4NzItMTdjYy00ZTc3LTliOGQtYzBkZGVlMzg5MzY5IiwidCI6IjA2ZDc1N2Q1LThiM2QtNDFiYi1iMzlhLTIyYTUxOWY3MTQwZCJ9",
             "area-of-business": "executive"
         },
         {
